@@ -3,6 +3,7 @@ const mongodb = require('mongodb');
 const router = express.Router();
 
 router.get('/api/categories', async (req, res) => {
+  console.log('Get Categories')
   const categories = await loadCollection();
   const current = categories.db('bon-patron').collection('categories');
   res.send(await current.find({}).toArray());
