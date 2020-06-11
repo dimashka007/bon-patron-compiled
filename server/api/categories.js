@@ -6,6 +6,7 @@ router.get('/api/categories', async (req, res) => {
   console.log('Get Categories')
   const categories = await loadCollection();
   const current = categories.db('bon-patron').collection('categories');
+  console.log(current)
   res.send(await current.find({}).toArray());
   categories.close();
 });
